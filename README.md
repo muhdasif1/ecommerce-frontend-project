@@ -82,7 +82,7 @@ Using CSS Grid and Media Queries for Layout Resizing.
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/luxora-deals.git
+   git clone https://github.com/muhdasif1/ecommerce-frontend-project.git
    ```
 2. **Open project folder**
 
@@ -131,11 +131,4 @@ You can easily:
 * Convert into React / Shopify / WooCommerce frontend
 
 ---
-
-If you want, I can also:
-Create a **professional GitHub description**
-Add **badges** (HTML5, CSS3, JavaScript)
-Add **screenshots section**
-Create **folders structure**
-Upload to **your GitHub repository**
 
