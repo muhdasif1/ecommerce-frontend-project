@@ -106,7 +106,7 @@ Using CSS Grid and Media Queries for Layout Resizing.
 
 ### ✔ Email Subscription (Alert Message)
 
---
+---
 
 ## **Customization**
 
