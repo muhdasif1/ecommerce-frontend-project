@@ -1,6 +1,6 @@
 # 🛍️ **Luxora Deals – Modern Ecommerce Frontend**
 
-Luxora Deals is a fully responsive, modern, and stylish ecommerce frontend built using **HTML**, **CSS**, and **JavaScript**.
+Luxora Deals is a fully responsive, modern, and stylish e-commerce frontend built using HTML, CSS, and JavaScript.
 It features a clean UI, elegant layout, smooth interactions, and a professional shopping experience suitable for fashion, accessories, or general online stores.
 
 ---
@@ -62,7 +62,7 @@ The entire website is built to scale beautifully on:
 * Tablet
 * Mobile
 
-Using CSS Grid + Media Queries for layout resizing.
+Using CSS Grid and Media Queries for Layout Resizing.
 
 ---
 
