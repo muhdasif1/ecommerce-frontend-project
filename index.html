@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxora Deals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+        /* Top Bar */
+        .top-bar {
+            background: #f8f8f8;
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 13px;
+        }
+
+        .top-left {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-left select {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .top-right {
+            color: #666;
+        }
+
+        .top-right span {
+            color: #d72929;
+        }
+
+        /* Header */
+        header {
+            background: rgb(255, 255, 255);
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d81717;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 18px;
+        }
+
+        .header-icons i {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .header-icons i:hover {
+            color: #ff4444;
+        }
+
+        .cart-badge {
+            position: relative;
+        }
+
+        .cart-badge span {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #333;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #ffffff;
+            padding: 80px 20px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-image {
+            flex: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero-text .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .hero-text .subtitle::before,
+        .hero-text .subtitle::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: #333;
+        }
+
+        .hero-text h1 {
+            font-size: 60px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .hero-text .promo {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .shop-btn {
+            padding: 15px 40px;
+            background: white;
+            border: 2px solid #333;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .shop-btn:hover {
+            background: #333;
+            color: white;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .features-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .feature p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* New Arrival */
+        .new-arrival {
+            padding: 60px 20px;
+            background: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: 500;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+
+        .products {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #e91e63;
+            color: white;
+            padding: 5px 15px;
+            font-size: 12px;
+            border-radius: 3px;
+        }
+
+        .product-badge.new {
+            background: #7c4dff;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .product-name {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .current-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .old-price {
+            font-size: 14px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .wishlist {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #999;
+            cursor: pointer;
+        }
+
+        .wishlist:hover {
+            color: #ff4444;
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .blog-header h2 {
+            font-size: 32px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .blog-header h2::before,
+        .blog-header h2::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: #333;
+        }
+
+        .blog-posts {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .blog-post {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #7c4dff;
+            color: white;
+            padding: 5px 15px;
+            font-size: 12px;
+            border-radius: 3px;
+        }
+
+        .blog-content {
+            padding: 20px;
+            background: white;
+            text-align: center;
+        }
+
+        .blog-content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .blog-author {
+            font-size: 13px;
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: #f8f8f8;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #333;
+        }
+
+        .footer-brand {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand-text {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .subscribe-text {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .subscribe-btn {
+            padding: 12px 30px;
+            background: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .subscribe-btn:hover {
+            background: #555;
+        }
+
+        @media (max-width: 1024px) {
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-content {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-posts {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="top-left">
+                <select>
+                    <option>English</option>
+                    <option>Spanish</option>
+                </select>
+                <select>
+                    <option>USD</option>
+                    <option>EUR</option>
+                </select>
+                <span>Call 03001234567</span>
+            </div>
+            <div class="top-right">
+                Free delivery on order over <span>$200</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Luxora Deals</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Collection</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <i class="fas fa-search"></i>
+                <i class="far fa-heart"></i>
+                <div class="cart-badge">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=500&h=600&fit=crop" alt="Male Model">
+            </div>
+            <div class="hero-text">
+                <div class="subtitle">Stylish</div>
+                <b><h1>Male Clothes</h1></b>
+                <p class="promo">30% off Summer Vacation</p>
+                <button class="shop-btn">SHOP NOW</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="features-content">
+            <div class="feature">
+                <i class="fas fa-truck"></i>
+                <h3>Free Shipping</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed</p>
+            </div>
+            <div class="feature">
+                <i class="far fa-clock"></i>
+                <h3>Support 24/7</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>Money Return</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrival -->
+    <section class="new-arrival">
+        <div class="section-title">
+            <h2>New Arrival</h2>
+        </div>
+        <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipiscing.</p>
+        <div class="products">
+            <div class="product">
+                <span class="product-badge">-15%</span>
+                <i class="far fa-heart wishlist"></i>
+                <img class="product-image" src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=200&h=200&fit=crop" alt="Sweater">
+                <p class="product-name">T- Shirt And Jeans</p>
+                <div class="product-price">
+                    <span class="current-price">$ 50.00</span>
+                    <span class="old-price">$ 65.00</span>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product-badge new">New</span>
+                <i class="far fa-heart wishlist"></i>
+                <img class="product-image" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop" alt="Backpack">
+                <p class="product-name">T- Shirt And Jeans</p>
+                <div class="product-price">
+                    <span class="current-price">$ 70.00</span>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product-badge">-11%</span>
+                <i class="far fa-heart wishlist"></i>
+                <img class="product-image" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=200&h=200&fit=crop" alt="Sunglasses">
+                <p class="product-name">T- Shirt And Jeans</p>
+                <div class="product-price">
+                    <span class="current-price">$ 40.00</span>
+                    <span class="old-price">$ 45.00</span>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product-badge new">New</span>
+                <i class="far fa-heart wishlist"></i>
+                <img class="product-image" src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=200&h=200&fit=crop" alt="Hat">
+                <p class="product-name">T- Shirt And Jeans</p>
+                <div class="product-price">
+                    <span class="current-price">$ 80.00</span>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product-badge">-18%</span>
+                <i class="far fa-heart wishlist"></i>
+                <img class="product-image" src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=200&h=200&fit=crop" alt="Watch">
+                <p class="product-name">T- Shirt And Jeans</p>
+                <div class="product-price">
+                    <span class="current-price">$ 90.00</span>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product-badge new">New</span>
+                <i class="far fa-heart wishlist"></i>
+                <img class="product-image" src="https://images.unsplash.com/photo-1624222247344-550fb60583c2?w=200&h=200&fit=crop" alt="Belt">
+                <p class="product-name">T- Shirt And Jeans</p>
+                <div class="product-price">
+                    <span class="current-price">$ 30.00</span>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product-badge">-45%</span>
+                <i class="far fa-heart wishlist"></i>
+                <img class="product-image" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop" alt="Shoes">
+                <p class="product-name">T- Shirt And Jeans</p>
+                <div class="product-price">
+                    <span class="current-price">$ 20.00</span>
+                    <span class="old-price">$ 35.00</span>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product-badge new">New</span>
+                <i class="far fa-heart wishlist"></i>
+                <img class="product-image" src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=200&h=200&fit=crop" alt="Pants">
+                <p class="product-name">T- Shirt And Jeans</p>
+                <div class="product-price">
+                    <span class="current-price">$ 50.00</span>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product-badge new">New</span>
+                <i class="far fa-heart wishlist"></i>
+                <img class="product-image" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop" alt="Headphones">
+                <p class="product-name">T- Shirt And Jeans</p>
+                <div class="product-price">
+                    <span class="current-price">$ 50.00</span>
+                </div>
+            </div>
+            <div class="product">
+                <span class="product-badge new">New</span>
+                <i class="far fa-heart wishlist"></i>
+                <img class="product-image" src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop" alt="Sneakers">
+                <p class="product-name">T- Shirt And Jeans</p>
+                <div class="product-price">
+                    <span class="current-price">$ 50.00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section class="blog">
+        <div class="blog-header">
+            <h2>OUR BLOG</h2>
+        </div>
+        <div class="blog-posts">
+            <div class="blog-post">
+                <span class="blog-category">Lifestyle</span>
+                <img class="blog-image" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400&h=300&fit=crop" alt="Blog 1">
+                <div class="blog-content">
+                    <h3>Lorem ipsum dolor sit amet consec.</h3>
+                    <p class="blog-author">By Shop Admin</p>
+                </div>
+            </div>
+            <div class="blog-post">
+                <span class="blog-category">Lifestyle</span>
+                <img class="blog-image" src="https://images.unsplash.com/photo-1463936575829-25148e1db1b8?w=400&h=300&fit=crop" alt="Blog 2">
+                <div class="blog-content">
+                    <h3>Lorem ipsum dolor sit amet consec.</h3>
+                    <p class="blog-author">By Shop Admin</p>
+                </div>
+            </div>
+            <div class="blog-post">
+                <span class="blog-category">Lifestyle</span>
+                <img class="blog-image" src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=300&fit=crop" alt="Blog 3">
+                <div class="blog-content">
+                    <h3>Lorem ipsum dolor sit amet consec.</h3>
+                    <p class="blog-author">By Shop Admin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">Flone.</div>
+                <p class="footer-brand-text">© 2019 Flone.</p>
+                <p class="footer-brand-text">All Rights Reserved</p>
+            </div>
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Store location</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Orders tracking</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Support Policy</a></li>
+                    <li><a href="#">Size guide</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Subscribe</h3>
+                <p class="subscribe-text">Get E-mail updates about our latest shop and special offers.</p>
+                <input type="email" class="email-input" placeholder="Enter your email here...">
+                <button class="subscribe-btn">SUBSCRIBE</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation links - scroll to top on click
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('.product').forEach(product => {
+            product.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('wishlist')) {
+                    console.log('Product clicked');
+                }
+            });
+        });
+
+        // Wishlist toggle
+        document.querySelectorAll('.wishlist').forEach(heart => {
+            heart.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('fas');
+                this.classList.toggle('far');
+            });
+        });
+
+        // Shop now button
+        document.querySelector('.shop-btn').addEventListener('click', function() {
+            document.querySelector('.new-arrival').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Subscribe button
+        document.querySelector('.subscribe-btn').addEventListener('click', function() {
+            const email = document.querySelector('.email-input').value;
+            if (email) {
+                alert('Thank you for subscribing!');
+                document.querySelector('.email-input').value = '';
+            }
+        });
+    </script>
+</body>
+</html>
