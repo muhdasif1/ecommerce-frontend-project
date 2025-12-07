@@ -106,19 +106,7 @@ Using CSS Grid and Media Queries for Layout Resizing.
 
 ### ✔ Email Subscription (Alert Message)
 
----
-
-## **Screenshots (Optional Add Later)**
-
-You can add screenshots like this:
-
-```
-/screenshots/homepage.png
-/screenshots/products.png
-/screenshots/blog.png
-```
-
----
+--
 
 ## **Customization**
 
